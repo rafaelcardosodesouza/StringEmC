@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1714252321 source:c:\users\rafae\onedrive\Área de trabalho\strinc\stringemc\stringc\string.c
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+	<ctype.h>
+
+1714252289 c:\users\rafae\onedrive\Área de trabalho\strinc\stringemc\stringc\string.h
+
