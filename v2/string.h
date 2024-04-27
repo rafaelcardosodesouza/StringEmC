@@ -6,5 +6,7 @@ typedef struct {
 } String;
 
 String criarString();
+String maiusculo(String txt);
+String minusculo(String txt);
 
 #endif
