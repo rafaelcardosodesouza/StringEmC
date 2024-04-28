@@ -9,4 +9,7 @@ String createString();
 String toUppercase(String txt);
 String toLowercase(String txt);
 
+int qtyCaractere(String text);
+String string(const char *input);
+
 #endif

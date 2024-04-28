@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include<stdbool.h>
 
 /* Structure to hold a string */
 typedef struct {
@@ -48,6 +49,17 @@ String createString() {
     return wrapper; // Return the String structure encapsulating the created string
 }
 
+String string(const char *input) {
+    String wrapper;
+    wrapper.string = strdup(input); // Creates a copy of the input string
+
+    if (wrapper.string == NULL) {
+        printf("Error allocating memory.");
+        exit(1);
+    }
+    return wrapper;
+}
+
 // Procedure to convert a string to uppercase
 String toUppercase(String text) {
     int i = 0;
@@ -72,3 +84,19 @@ String toLowercase(String text) {
     temp.string[i] = '\0'; // Character indicating the end of the string
     return temp;
 }
+
+int qtyCaractere(String text){
+    int i = 0;
+    int j = 0;
+    while (text.string[i] != '\0'){
+        if(text.string[i] != ' ' && text.string[i] != '\n'){
+            j++;
+        }
+    i++;
+    }
+    return j;
+}
+
+
+
+
