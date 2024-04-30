@@ -11,42 +11,47 @@ typedef struct {
 
 /* Function to create a string */
 String createString() {
-    int initialSize = 10; // Define the initial size of the string for memory optimization
-    char *string = (char *)malloc(initialSize * sizeof(char)); // Allocate initial memory for the string
+    int initialSize = 10; // Define o tamanho inicial da string para otimização de memória
+    char *string = (char *)malloc(initialSize * sizeof(char)); // Aloca memória inicial para a string
 
-    // Check if memory allocation was successful
+    // Verifica se a alocação de memória foi bem-sucedida
     if (string == NULL) {
-        printf("Error allocating memory.");
-        exit(1); // Terminate the program if memory allocation fails
+        printf("Erro ao alocar memória.");
+        exit(1); // Termina o programa se a alocação de memória falhar
     }
 
-    char character;
     int index = 0;
+    int character;
 
-    // Loop to read characters until encountering a newline
-    while ((character = getchar()) != '\n') {
-        // Check if more memory needs to be reallocated for the string
+    // Loop para ler caracteres até encontrar uma nova linha ou fim de arquivo
+    while ((character = getchar()) != '\n' && character != EOF) {
+        string[index] = (char)character; // Armazena o caractere na string
+        index++;
+
+        // Verifica se mais memória precisa ser realocada para a string
         if (index >= initialSize - 1) {
-            initialSize *= 2; // Double the size of the string to avoid frequent reallocations
-            string = (char *)realloc(string, initialSize * sizeof(char)); // Reallocate memory for the string
+            initialSize *= 2; // Dobra o tamanho da string para evitar realocações frequentes
+            string = (char *)realloc(string, initialSize * sizeof(char)); // Realoca memória para a string
 
-            // Check if memory reallocation was successful
+            // Verifica se a realocação de memória foi bem-sucedida
             if (string == NULL) {
-                printf("Error reallocating memory.");
-                exit(1); // Terminate the program if memory reallocation fails
+                printf("Erro ao realocar memória.");
+                exit(1); // Termina o programa se a realocação de memória falhar
             }
         }
-
-        string[index] = character; // Store the character in the string
-        index++;
     }
 
-    string[index] = '\0'; // Add the null character at the end of the string to indicate its termination
+    // Se a entrada for vazia, retorna uma string vazia
+    if (index == 0) {
+        string[index] = '\0'; // Adiciona o caractere nulo ao final da string para indicar sua terminação
+    } else {
+        string[index] = '\0'; // Adiciona o caractere nulo ao final da string para indicar sua terminação
+    }
 
-    // Create a String structure to encapsulate the created string and return it
+    // Cria uma estrutura String para encapsular a string criada e a retorna
     String wrapper;
-    wrapper.string = string; // Assign the created string to the String structure to encapsulate it
-    return wrapper; // Return the String structure encapsulating the created string
+    wrapper.string = string; // Atribui a string criada à estrutura String para encapsulá-la
+    return wrapper; // Retorna a estrutura String encapsulando a string criada
 }
 
 String string(const char *input) {
@@ -95,6 +100,29 @@ int qtyCaractere(String text){
     i++;
     }
     return j;
+}
+
+String rmCharacter(String text) {
+    String temp; // Variável para armazenar a cópia da string
+    temp.string = strdup(text.string); // Cria uma cópia da string original
+
+    // Verifica se a alocação de memória foi bem-sucedida
+    if (temp.string == NULL) {
+        printf("Erro ao alocar memória.");
+        exit(1); // Termina o programa se a alocação de memória falhar
+    }
+
+    int i = 0, j = 0;
+    while (temp.string[i]) {
+        if (isalnum(temp.string[i]) || temp.string[i] == ' ') {
+            temp.string[j] = temp.string[i];
+            j++;
+        }
+        i++;
+    }
+    temp.string[j] = '\0'; // Adiciona o caractere nulo no final da string modificada
+
+    return temp; // Retorna a cópia da string modificada
 }
 
 

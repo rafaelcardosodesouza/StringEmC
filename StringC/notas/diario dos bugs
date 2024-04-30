@@ -1,72 +1,3 @@
-Para criar uma nova string (cadeias de caractes dinamica) voce deve importar a biblioteca string.c usando #include "string.h"
-
-para criar uma nova variavel do tipo string se deve ser declada String <nome> = createString();
-
-Para imprimir essa string nome_da_variavel.string; sem esquecer de chamar dentro do prinf("exempla %s", nome_da_variavel.string);
-
-Para transformar tudo em letras minuscula deve criar uma nova variavel do tipo String recebendo toLowercase(), voce deve passar como argumento 
-a variavel que deseja converter, exemplo: 
-
-String variable1 = createString();
-    variable1 = toLowercase(variable);
-    printf("\nVariable in lowercase: %s\n", variable1.string);
-	
-Para transformar tudo em letras maiusculas deve criar uma nova variavel do tipo String recebendo toUppercase(), voce deve passar como argumento 
-a variavel que deseja converter, exemplo: 
-
-String variable1 = createString();
-    variable1 = toLowercase(variable);
-    printf("\nVariable in lowercase: %s\n", variable1.string);
-	
-String variable2 = createString();
-    variable2 = toUppercase(variable);
-    printf("\nVariable in uppercase: %s\n", variable2.string);
-	
-	
-	-------------------------
-	
-	Funcionamentos dos metodos:
-	
-
-createString();
-
-"Essencialmente, esta função lê caracteres do input do usuário, armazena-os em uma string, ajusta dinamicamente o tamanho da string conforme necessário e encapsula a string em uma estrutura para retorná-la. Isso é útil quando você não sabe o tamanho da string de antemão."
-
-
-*A função começa definindo um tamanho inicial para a string (initialSize = 10) e alocando memória para a string com esse tamanho inicial.
-*Em seguida, verifica se a alocação de memória foi bem-sucedida. Se não for, imprime uma mensagem de erro e termina o programa.
-*A função então entra em um loop, lendo caracteres do input do usuário até encontrar uma nova linha ('\n').
-*Dentro do loop, verifica se a string precisa de mais memória. Se o índice atual for maior ou igual ao tamanho inicial menos um, a função dobra o tamanho da string (initialSize *= 2) e realoca a memória para a string.
-*Novamente, verifica se a realocação de memória foi bem-sucedida. Se não for, imprime uma mensagem de erro e termina o programa.
-*Finalmente, a função armazena o caractere lido na string e incrementa o índice.
-*Após o loop, a função adiciona o caractere nulo ('\0') ao final da string para indicar seu término.
-*Finalmente, a função cria uma estrutura String, atribui a string criada a essa estrutura e retorna a estrutura.
-*Essencialmente, esta função lê caracteres do input do usuário, armazena-os em uma string e ajusta dinamicamente o tamanho da string conforme necessário
-
-
-
-toLowercase(); 
-
-"Essa função é útil para padronizar a entrada de texto para maiúsculas, por exemplo, ao comparar strings ou armazenar dados de forma consistente."
-
-*Inicialização: Define um índice i como 0 e cria uma nova variável temp do tipo String.
-*Loop de Conversão: Usa um loop while para iterar sobre cada caractere da string text até encontrar o caractere nulo ('\0').
-*Conversão de Caracteres: Dentro do loop, converte cada caractere para maiúscula usando a função toupper e armazena no temp.
-*Terminação da String: Após o loop, adiciona o caractere nulo ao final de temp para indicar o fim da string.
-*Retorno: Retorna a nova string temp convertida para maiúsculas.
-
-
-toUppercase
-
-"Essa função é útil para padronizar a entrada de texto para minúsculas, por exemplo, ao comparar strings ou armazenar dados de forma consistente."
-
-*Inicialização: Define um índice i como 0 e cria uma nova variável temp do tipo String.
-*Loop de Conversão: Usa um loop while para iterar sobre cada caractere da string text até encontrar o caractere nulo ('\0').
-*Conversão de Caracteres: Dentro do loop, converte cada caractere para minúscula usando a função tolower e armazena no temp.
-*Terminação da String: Após o loop, adiciona o caractere nulo ao final de temp para indicar o fim da string.
-*Retorno: Retorna a nova string temp convertida para minúsculas.
-
-------------------------------------------------------
 Diario do Bug - 24/04/24
 Encontrei um bug, meio que ja estava na cara, basicamente nao conseguia ja alocar um valor no createString sem ter que o usuario ter que digitar
 contornei isso criando um metodo novo string, esse metodo recebe como const char *input
@@ -84,4 +15,8 @@ String string(const char *input) {
 }
 
 A função string cria uma cópia dinâmica da string de entrada usando strdup e a armazena em uma estrutura String. Essa estrutura é então retornada pela função. Se a alocação de memória falhar, o programa é encerrado com uma mensagem de erro. Essa função é útil para criar e manipular strings dinâmicas em C.
+-------------------------------------------------------------------
 
+Diario do bug - 30/04/24
+
+String nao esta imprimindo caracteres especiais como !@#$ .....

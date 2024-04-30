@@ -1,15 +1,22 @@
 # depslib dependency file v1.0
-1714267935 source:c:\users\rafae\onedrive\햞ea de trabalho\strinc\stringemc\stringc\string.c
+1714501096 source:c:\users\rafae\onedrive\햞ea de trabalho\strinc\stringemc\stringc\string.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<ctype.h>
 	<stdbool.h>
 
-1714266238 c:\users\rafae\onedrive\햞ea de trabalho\strinc\stringemc\stringc\string.h
+1714494660 c:\users\rafae\onedrive\햞ea de trabalho\strinc\stringemc\stringc\string.h
 
-1714267492 source:c:\users\rafae\onedrive\햞ea de trabalho\strinc\stringemc\stringc\main.c
+1714496801 source:c:\users\rafae\onedrive\햞ea de trabalho\strinc\stringemc\stringc\main.c
+	<stdio.h>
+	<locale.h>
+	"string.h"
+
+1714267935 source:c:\users\rafae\onedrive\햞ea de trabalho\strinc\stringemc\stringc - copia\string.c
 	<stdio.h>
 	<stdlib.h>
-	"string.h"
+	<string.h>
+	<ctype.h>
+	<stdbool.h>
 

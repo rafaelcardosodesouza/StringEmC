@@ -12,4 +12,5 @@ String toLowercase(String txt);
 int qtyCaractere(String text);
 String string(const char *input);
 
+String rmCharacter(String txt);
 #endif
